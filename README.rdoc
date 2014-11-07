@@ -1,0 +1,5 @@
+== Coffee Study
+
+The WebApp that let you find the perfect workplace nearby !
+
+© 2014 / Adrien Nhem 

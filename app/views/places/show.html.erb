@@ -1,0 +1,40 @@
+<p id="notice"><%= notice %></p>
+
+<div class="page-header">
+  <h1> <%= @place.business_name %></h1>
+  <%= link_to 'Edit', edit_place_path(@place) %> |
+  <%= link_to 'Back', places_path %>
+</div>
+
+<div class="row">
+  <div class="col-md-5">
+    <%= image_tag @place.image.url(:medium) %>
+  </div>
+  <div class="col-md-5">
+    <p>
+  <strong>Address:</strong>
+  <%= @place.address %>
+</p>
+ <p>
+   <div class="star-rating" data-score= <%= @avg_review %> ></div>
+        <em><%= "#{@reviews.length} reviews" %></em>
+ </p>
+  <%= link_to 'Write a new review', new_place_review_path(@place) %> 
+
+  </div>
+</div>
+
+
+<%= image_tag("https://maps.googleapis.com/maps/api/staticmap?size=450x300&sensor=false&zoom=16&markers=#{@place.latitude}%2C#{@place.longitude}") %>
+
+ <% if @reviews.blank? %>
+          <h3>No reviews just yet, would you like to add the first!</h3>
+          <%= link_to "Write Review", new_place_review_path(@place), class: "btn btn-danger" %>
+        <% else %>
+          <% @reviews.each do |review| %>
+            <div class="reviews">
+              <div class="star-rating" data-score= <%= review.rating %> ></div>
+              <p><%= review.comment %></p>
+            </div>
+          <% end %>
+          <% end %>

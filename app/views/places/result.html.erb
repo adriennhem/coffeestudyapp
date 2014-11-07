@@ -1,0 +1,34 @@
+
+  
+
+
+
+  <% @places.each do |place| %>
+
+<div class="row page-header place">
+    <div class="col-md-2">
+      <div class="place-profile-picture">
+      <%= image_tag place.image.url(:medium) %>
+      </div>
+    </div>
+
+    <div class="col-md-9">
+      <div class="place-title">
+      <%= link_to place_path(place) do %>
+      <%= place.business_name %>    
+      <% end %> 
+      </div>
+      <span class="glyphicon glyphicon-map-marker"></span>  
+      <%= place.address %> <br>
+      <%= place.distance.round(2) %> km
+      <div class="star-rating" data-score= <%= place.average %>> 
+      </div>
+
+      <% if place.user == current_user && user_signed_in? %>
+        <%= link_to 'Edit', edit_place_path(place) %>
+        <%= link_to 'Destroy', place, method: :delete, data: { confirm: 'Are you sure?' } %>
+      <% end %>
+  </div>  
+</div>           
+  <% end %>
+
