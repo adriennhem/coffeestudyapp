@@ -42,7 +42,14 @@ window.analytics=window.analytics||[],window.analytics.methods=["identify","grou
 window.analytics.load("TWeM5dxMiD");
 window.analytics.page();
 
-
+// facebook share button
+(function(d, s, id) {
+  var js, fjs = d.getElementsByTagName(s)[0];
+  if (d.getElementById(id)) return;
+  js = d.createElement(s); js.id = id;
+  js.src = "//connect.facebook.net/en_GB/sdk.js#xfbml=1&appId=1573780152842240&version=v2.0";
+  fjs.parentNode.insertBefore(js, fjs);
+}(document, 'script', 'facebook-jssdk'));
 
 $(document).ready(ready);
 $(document).on('page:load', ready);
