@@ -23,7 +23,8 @@
 </div>
 
 
-<div class="container place-content">
+<div class="container">
+  <div class="row place-content">
   <h1 class="page-header">Most Recent</h1>
 
       <% @places.each do |place| %>
@@ -33,21 +34,25 @@
     <div class="panel panel-default">
       <%= link_to place_path(place) do %> 
         <%= image_tag place.image.url(:medium) %>
-            <% end %>
+      <% end %>
+
       <div class="panel-body">
         <strong> <%= place.business_name %></strong> <br>
-         <%= place.address %> <br>
-         <div class="star-rating" data-score= <%= place.average %> ></div>
+           <%= place.address %> <br>
+           <% if place.reviews.count > 0 %>
+           <div class="star-rating" data-score= <%= place.average %> ></div>
+           <% end %>
          
           <% if place.user == current_user && user_signed_in? %>
             <%= link_to 'Edit', edit_place_path(place) %>
             <%= link_to 'Destroy', place, method: :delete, data: { confirm: 'Are you sure?' } %>
           <% end %>
-  </div> <!-- panel body -->
+        </div> <!-- panel body -->
     </div> <!-- col-md-4 -->
 
     </div>
-    <% end %> 
+    <% end %>
+    </div> 
 </div>
 
 
