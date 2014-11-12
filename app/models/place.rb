@@ -16,4 +16,8 @@ class Place < ActiveRecord::Base
     reviews.map(&:rating).inject(&:+) / reviews.count unless reviews.count == 0
   end
 
+  def self.best_rated
+  	Place.order(:created_at).last
+  end
+
 end

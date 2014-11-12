@@ -1,34 +1,33 @@
+<div id="fb-root"></div>
 
 <div class="container-fluid">
-
    <div class="row" id="main">
       <div class="col-md-5 col-md-offset-3" id="home-content">
-
-        <h1 id="home-title">want to work ?</h1>
+        <h1 id="home-title">it all starts with the right place  </h1>
         <p id="home-text">find the perfect place to work in london</p>
-        
         <%=link_to "What do we do", '#', class: "btn btn-danger" %>
-    
-       <%= form_tag places_path, method: :get, id: 'search' do %>
+        <%= form_tag places_path, method: :get, id: 'search' do %>
             <div class="input-group input-group-sm">
-              <%= text_field_tag :search, params[:search], class: "form-control controls", :id => "pac-input" %>
-                <span class="input-group-btn">
-                  <%= button_tag(type: 'submit', class: "btn btn-default", :name => nil) do %>
-                    <span class="glyphicon glyphicon-search"></span> 
-                  <% end %>
-                </span>
+            <%= text_field_tag :search, params[:search], class: "form-control controls", :id => "pac-input" %>
+              <span class="input-group-btn">
+                <%= button_tag(type: 'submit', class: "btn btn-default", :name => nil) do %>
+                <span class="glyphicon glyphicon-search"></span> 
+                <% end %>
+              </span>
             </div>
-        <% end %>
-    </div>
-</div>
+            <% end %>
+      </div>
+    </div> <!-- MAIN -->
 
 
-<div class="container">
-  <div class="row place-content">
+
+  <div class="row" id="place-content">
   <h1 class="page-header">Most Recent</h1>
 
+  <% cache ['place', Place.best_rated] do %>
+
       <% @places.each do |place| %>
-  
+          <% cache ['entry', place] do %>
   <div class="col-md-4 box">
 
     <div class="panel panel-default">
@@ -45,7 +44,7 @@
            <div class="fb-share-button" data-href="http://worklab.com/places/<%= place.id  %>" data-width="20" data-layout="icon_link"></div>
 
            <a href="https://twitter.com/share" class="twitter-share-button" data-url="http://worklab.com/places/<%= place.id %>" data-via="AdrienNhem">Tweet</a>
-            <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');</script>
+           
 
             <script src="//platform.linkedin.com/in.js" type="text/javascript">
               lang: en_US
@@ -60,11 +59,12 @@
     </div> <!-- col-md-4 -->
 
     </div>
+      <% end %>
+    <% end %>
     <% end %>
     </div> 
-</div>
 
 
 
-  </div> <!-- container -->
-</div> <!-- container-fluid -->
+
+
