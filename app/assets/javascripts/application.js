@@ -14,6 +14,7 @@
 //= require jquery.turbolinks
 //= require jquery_ujs
 //= require bootstrap-sprockets
+//= require social-share-button
 //= require underscore
 //= require gmaps/google
 //= require masonry/jquery.masonry
