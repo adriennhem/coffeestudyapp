@@ -1,12 +1,19 @@
-<div class="footer">
+<div class="container-fluid">
 	<div class="row inner-footer">
-		<div class="col-md-6 col-md-offset-2">
-				<%= link_to 'About', pages_about_path %>
+		<div class="col-md-3 col-md-offset-1 left-footer">
+				<%= link_to 'What we do', pages_about_path %>
+				<%= link_to 'Our team', pages_about_path %>
 				<%= link_to 'Terms & Privacy', pages_privacy_path %>
 		</div>
-			<div class="col-md-11">
-				<h1>Follow Us</h1>
-			</div>
-		
+		<div class="col-md-4 social col-md-offset-4">
+			<%= link_to image_tag("facebook.jpg"), pages_about_path %>
+			<%= link_to image_tag("twitter.jpg"), pages_about_path %>
+			<%= link_to image_tag("instagram.jpg"), pages_about_path %>
+			<%= link_to image_tag("share_this.jpg"), pages_about_path %>
+		</div>
 	</div>
+			<div class="row copyrights">
+			<span>© 2014 - All rights reserved. 
+				built by Adrien Nhem</span>
+		</div>
 </div>

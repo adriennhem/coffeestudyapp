@@ -57,11 +57,34 @@ body {
 
 .inner-footer {
 	margin-top:20px;
-	background:#fff;
+	background:#1F1F1F;
+	color:#686D6D;
 }
 
 .inner-footer .col-md-12 {
 	text-align:center;
+}
+
+.inner-footer a {
+	color:#686D6D;
+	padding:10px 4px;
+}
+
+.social {
+	padding:10px 5px;
+}
+
+.left-footer {
+	padding:35px 10px;
+}
+
+.copyrights {
+	color:#686D6D;
+	background:#000;
+	font-size:12px;
+	padding:5px 5px;
+	text-align:center;
+
 }
 //***************
 //** NAVBAR **  
