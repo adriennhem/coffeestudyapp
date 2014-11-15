@@ -13,7 +13,8 @@ Rails.application.routes.draw do
     end
   end
 
-
+  get 'pages/about' => 'pages#about'
+  get 'pages/privacy' => 'pages#privacy'
   root 'places#index'
 
   # The priority is based upon order of creation: first created -> highest priority.

@@ -20,12 +20,12 @@
 
 
   <div class="row" id="place-content">
-  <h1 class="page-header">Most Recent</h1>
+  <h1 class="page-header col">Most Recent</h1>
 
     <% cache ['place', Place.best_rated] do %>
       <% @places.each do |place| %>
         <% cache ['entry', place] do %>
-          <div class="col-md-4 box">
+          <div class="col-md-4 col-md-offset-0 box">
             <div class="panel panel-default">
               <%= link_to place_path(place) do %> 
               <%= image_tag place.image.url(:medium) %>
@@ -34,7 +34,7 @@
               <div class="panel-body">
                 <strong> <%= place.business_name %></strong> <br>
                 <%= place.address %> <br>
-                <% if place.reviews.count > 0 %>
+                <% if place.reviews.count >= 1 %>
                 <div class="star-rating" data-score= <%= place.average %> ></div>
                 <% end %>
                 <%= social_share_button_tag(place.business_name, url: "http://www.worklab.com/places/#{place.id}") %>          
