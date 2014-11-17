@@ -15,9 +15,6 @@
 	<% flash.each do |name, msg| %>
   <%= content_tag(:div, msg, class: "alert alert-#{name}") %>
 <% end %>
-<!-- Go to www.addthis.com/dashboard to customize your tools -->
-<script type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-5467754c50034f1e" async="async"></script>
-
 
 
 <%= yield %>
